@@ -21,8 +21,8 @@ LAT_MIN, LAT_MAX = 5, 40
 LON_MIN, LON_MAX = -90, -50
 
 # Time window (can be wide; we still restrict to N_FRAMES)
-START_TIME = "2019-08-28T12:00"
-END_TIME   = "2019-09-09T00:00"
+START_TIME = "2019-08-24T00:00"
+END_TIME   = "2019-09-07T18:00"
 
 # ERA5 is hourly; keep one every TIME_STEP_HOURS
 TIME_STEP_HOURS = 6
@@ -31,7 +31,7 @@ TIME_STEP_HOURS = 6
 N_FRAMES = 5
 
 # Filaments look great but are expensive; keep this False for fast iterations
-ENABLE_FILAMENTS = False
+ENABLE_FILAMENTS = True
 
 # If True, regenerate PNGs even if they already exist
 FORCE_REGEN = False
@@ -339,8 +339,6 @@ ds = ds.sel(
 log(f"Subsampling time: 1 frame every {TIME_STEP_HOURS} hours...")
 ds = ds.isel(time=slice(0, None, TIME_STEP_HOURS))
 
-log(f"Limiting to the first {N_FRAMES} frames...")
-ds = ds.isel(time=slice(0, min(N_FRAMES, ds.sizes["time"])))
 n_frames = int(ds.sizes["time"])
 log(f"Final number of frames: {n_frames}")
 
