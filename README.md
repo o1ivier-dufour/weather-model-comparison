@@ -31,10 +31,11 @@ required for future trajectory and skill-score analyses.
 
 An early proof-of-concept version of the application is available here:
 
-👉 [https://weather-model-comparison.streamlit.app/]
+👉 https://weather-model-comparison.streamlit.app/
 
 This demo represents only the first exploratory step of the project. Future
 iterations will progressively introduce additional events, forecast datasets,
 and quantitative evaluation metrics.
+
 
 
